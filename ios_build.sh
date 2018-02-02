@@ -130,6 +130,7 @@ for (( i=0; i<${#ARCHS[@]}; i++ )); do
 done
 
 cd "$BUILD_DIR"
+echo "create fat .a to dir: $BUILD_DIR"
 lipo -create -output libprotobuf-lite.a libprotobuf-lite_*.a
 #rm libprotobuf-lite-*.a
 lipo -create -output libprotobuf.a libprotobuf_*.a
