@@ -10,7 +10,7 @@ ARCHS=(arm x86)
 #ARCHS=(arm arm64 x86 x86_64 mips mips64)
 
 PWD_DIR=$(pwd)
-BUILD_DIR=$PWD_DIR/build
+BUILD_DIR=$PWD_DIR/build/android
 
 
 function setup_one {
@@ -63,7 +63,6 @@ function setup_one {
 
 function build_one {
     BUILD_SUB_DIR=$BUILD_DIR/$ARCH
-    mkdir -p $BUILD_SUB_DIR 
     cd $PWD_DIR/protobuf
 
     CFLAGS="--sysroot $SYSROOT -DPOSIX -DANDROID -DSIGSLOT_USE_POSIX_THREADS"
@@ -79,6 +78,9 @@ function build_one {
     else
         CFLAGS="$CFLAGS -I$CXXSTL/libs/$ARCH/include"
     fi
+
+    mkdir -p $BUILD_SUB_DIR 
+
 
     ./configure --prefix=$BUILD_SUB_DIR \
         --host=$ARCH_HOST \

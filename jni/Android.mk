@@ -1,7 +1,7 @@
 LOCAL_PATH := $(call my-dir)
 include $(CLEAR_VARS)
 
-LOCAL_MODULE := libprotobuf-lite 
+LOCAL_MODULE := protobuf-lite
 
 SOURCE_BASE := $(LOCAL_PATH)/../protobuf/src
 SOURCE_DIR := $(SOURCE_BASE)/google/protobuf/
