@@ -1,5 +1,6 @@
 #!/bin/sh
 MODE=$1
+NDK_BUILD=~/Library/Android/android-ndk-r10e/ndk-build
 
 
 realpath() {
@@ -14,7 +15,7 @@ PWD=$(pwd)
 
 
 cd $SCRIPT_DIR/jni
-ndk-build $MODE
+$NDK_BUILD $MODE
 mkdir -p $BUILD_DIR 2>/dev/null
 OBJ_DIR=$SCRIPT_DIR/obj/local
 rsync -am --include='*.so'  --include='*.a' --include='*/' --exclude='*' $OBJ_DIR $TOP_BUILD_DIR
